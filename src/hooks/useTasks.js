@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const useTasks = (initialTasks, setInitialTasks) => {
-  const [tasks, setTasks] = useState(initialTasks || []);
+  const [tasks, setTasks] = useState(initialTasks);
   const [isShowCompleted, setIsShowCompleted] = useState(false);
 
   const createTask = (data, id) => {
