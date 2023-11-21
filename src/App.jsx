@@ -1,11 +1,13 @@
-import React from 'react'
-import './App.css'
-import TaskForm from './components/TaskForm'
-import Tasks from './components/Tasks'
-import TasksButtons from './components/TasksButtons'
-import useTasks from './hooks/useTasks'
-
+import React from 'react';
+import './App.css';
+import TaskForm from './components/TaskForm';
+import Tasks from './components/Tasks';
+import TasksButtons from './components/TasksButtons';
+import useTasks from './hooks/useTasks';
+import useLocalStorageTasks from './hooks/useLocalStorage';
 function App() {
+  
+  const [localStorageTasks, setLocalStorageTasks] = useLocalStorageTasks('tasks', []);
   const {
     tasks,
     isShowCompleted,
@@ -15,7 +17,7 @@ function App() {
     completeTask,
     showCompleted,
     eliminateAllCompleted
-  } = useTasks()
+  } = useTasks(localStorageTasks, setLocalStorageTasks); 
 
   return (
     <div>
@@ -34,7 +36,7 @@ function App() {
         eliminateAllCompleted={eliminateAllCompleted}
       />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

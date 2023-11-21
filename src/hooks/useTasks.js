@@ -1,60 +1,77 @@
-import {useState} from 'react'
+import { useState } from 'react';
 
-const useTasks = () => {
-  const [tasks, setTasks] = useState([])
-  const [isShowCompleted, setIsShowCompleted] = useState(false)
+const useTasks = (initialTasks, setInitialTasks) => {
+  const [tasks, setTasks] = useState(initialTasks || []);
+  const [isShowCompleted, setIsShowCompleted] = useState(false);
 
   const createTask = (data, id) => {
     const task = {
       title: data.task,
       id,
       completed: false
+    };
+
+    const newTasks = [...tasks, task];
+    setTasks(newTasks);
+
+    if (setInitialTasks) {
+      setInitialTasks(newTasks);
     }
-
-    const newTasks = [...tasks]
-    newTasks.push(task)
-
-    setTasks(newTasks)
-  }
+  };
 
   const deleteTask = (id) => {
-    const newTasks = [...tasks]
+    const newTasks = tasks.filter((task) => task.id !== id);
+    setTasks(newTasks);
 
-    setTasks(newTasks.filter((task) => task.id !== id))
-  }
+    if (setInitialTasks) {
+      setInitialTasks(newTasks);
+    }
+  };
 
   const updateTask = (data, id) => {
-    const updateTasks = [...tasks]
-    setTasks(
-      updateTasks.map((task) =>
-        task.id === id ? taskUpdated(data.task, task) : task
-      )
-    )
-  }
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? taskUpdated(data.task, task) : task
+    );
+
+    setTasks(updatedTasks);
+
+    if (setInitialTasks) {
+      setInitialTasks(updatedTasks);
+    }
+  };
 
   const taskUpdated = (newTitle, task) => {
-    const taskUpdate = {id: task.id, title: newTitle, completed: false}
-    return taskUpdate
-  }
+    const taskUpdate = { id: task.id, title: newTitle, completed: task.completed };
+    return taskUpdate;
+  };
 
   const completeTask = (id) => {
-    const updateTasks = [...tasks]
-    setTasks(
-      updateTasks.map((task) => (task.id !== id ? task : taskCompleted(task)))
-    )
-  }
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? taskCompleted(task) : task
+    );
+
+    setTasks(updatedTasks);
+
+    if (setInitialTasks) {
+      setInitialTasks(updatedTasks);
+    }
+  };
 
   const taskCompleted = (task) => {
-    task.completed = true
-    return task
-  }
+    const completedTask = { ...task, completed: true };
+    return completedTask;
+  };
 
-  const showCompleted = (value) => setIsShowCompleted(value)
+  const showCompleted = (value) => setIsShowCompleted(value);
 
   const eliminateAllCompleted = () => {
-    const tasksUpdated = [...tasks]
-    setTasks(tasksUpdated.filter((task) => !task.completed))
-  }
+    const tasksUpdated = tasks.filter((task) => !task.completed);
+    setTasks(tasksUpdated);
+
+    if (setInitialTasks) {
+      setInitialTasks(tasksUpdated);
+    }
+  };
 
   return {
     tasks,
@@ -65,7 +82,7 @@ const useTasks = () => {
     completeTask,
     showCompleted,
     eliminateAllCompleted
-  }
-}
+  };
+};
 
-export default useTasks
+export default useTasks;

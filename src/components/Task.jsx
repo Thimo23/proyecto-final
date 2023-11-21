@@ -3,6 +3,7 @@ import TaskForm from './TaskForm'
 import TaskDetail from './TaskDetail'
 import useTask from '../hooks/useTask'
 
+
 const Task = ({task, deleteTask, updateTask, completeTask}) => {
   const {title, completed, id} = task
 
