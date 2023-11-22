@@ -1,5 +1,6 @@
 import React from 'react'
 import Task from './Task'
+import './Tasks.css'
 
 const Tasks = ({
   tasks,
@@ -16,9 +17,9 @@ const Tasks = ({
   }
 
   return (
-    <div>
-      <h2>Tareas {showCompleted && 'Completadas'}</h2>
-      {tasksCompleted(showCompleted).length === 0 && <p>No hay tareas</p>}
+    <div className='tasks'>
+      <h2 className='tasks__title'>Tareas {showCompleted && 'Completadas'}</h2>
+      {tasksCompleted(showCompleted).length === 0 && <p className='tasks__empty'>No hay tareas</p>}
       {tasksCompleted(showCompleted).map((task) => (
         <Task
           key={task.id}

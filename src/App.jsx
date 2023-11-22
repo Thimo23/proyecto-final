@@ -20,7 +20,8 @@ function App() {
   } = useTasks(localStorageTasks, setLocalStorageTasks); 
 
   return (
-    <div>
+    <div className='contain'>
+      <h1 className='contain__title'>Lista de Tareas</h1>
       <TaskForm method={createTask} isEdit={false} />
 
       <Tasks

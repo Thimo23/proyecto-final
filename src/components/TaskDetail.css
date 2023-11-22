@@ -1,0 +1,68 @@
+.task {
+    width: 100%;
+    background-color: rgb(243, 232, 232);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 15px 6px 5px;
+    border-radius: 8px;
+}
+
+.task__title {
+    color: var(--titles);
+    height: auto;
+    font-size: 1rem;
+    /* overflow: hidden; */
+}
+
+.task__buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.task__buttons button {
+    padding: 2px 8px;
+    background-color: transparent;
+    font-size: .8rem;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+
+.task__button-completed {
+    border: 2px solid var(--completed);
+}
+
+.task__button-completed:hover {
+    background-color: var(--completed);
+    color: #fff;
+}
+
+.task__button-update {
+    border: 2px solid var(--button);
+}
+
+.task__button-update:hover {
+    background-color: var(--button);
+    color: #fff;
+}
+
+.task__button-eliminate {
+    border: 2px solid #dc3545;
+}
+
+.task__button-eliminate:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+@media (min-width: 900px) {
+    .task {
+        flex-direction: row;
+    }
+
+    .task__buttons {
+        gap: 10px;
+    }
+}

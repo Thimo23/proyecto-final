@@ -14,7 +14,7 @@ const Task = ({task, deleteTask, updateTask, completeTask}) => {
   )
 
   return (
-    <div>
+    <>
       {isEdit ? (
         <TaskForm
           method={updateTask}
@@ -31,7 +31,7 @@ const Task = ({task, deleteTask, updateTask, completeTask}) => {
           handleComplete={handleComplete}
         />
       )}
-    </div>
+    </>
   )
 }
 

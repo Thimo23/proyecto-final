@@ -1,9 +1,29 @@
-body {
+:root {
+  --bg: linear-gradient(rgb(67, 75, 95), rgb(71, 108, 121), rgb(70, 142, 148), rgb(61, 177, 176), rgb(36, 214, 205));
+  --titles: #000;
+  --input: #153281;
+  --button: #11e1c5;
+  --completed: #16e76d;
+}
+
+html {
+  height: 100%;
+}
+
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100%;
   display: flex;
-  place-items: center;
-  background-color: #242424;
-  color: white; 
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  background-size: cover;
+  font-family: sans-serif;
+  font-size: 18px;
+  background: var(--bg);
+  background-repeat: no-repeat;
+  color: var(--bg-tasks);
 }

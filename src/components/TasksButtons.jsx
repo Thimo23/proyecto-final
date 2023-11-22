@@ -1,4 +1,5 @@
 import React from 'react'
+import './TasksButtons.css'
 
 const TasksButtons = ({showCompleted, eliminateAllCompleted}) => {
   const handleOldShow = () => showCompleted(true)
@@ -8,12 +9,12 @@ const TasksButtons = ({showCompleted, eliminateAllCompleted}) => {
   const handleOnClick = () => eliminateAllCompleted()
 
   return (
-    <div>
-      <div>
-        <button onClick={handleShow}>Tareas</button>
-        <button onClick={handleOldShow}>Tareas completadas</button>
+    <div className='buttons-container'>
+      <div className='buttons-container__buttons'>
+        <button className='buttons-container__active' onClick={handleShow}>Tareas</button>
+        <button className='buttons-container__completed' onClick={handleOldShow}>Completadas</button>
       </div>
-      <button onClick={handleOnClick}>Elimiar tareas completadas</button>
+      <button className='buttons-container__eliminate' onClick={handleOnClick}>Elimiar tareas completadas</button>
     </div>
   )
 }

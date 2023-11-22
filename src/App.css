@@ -1,0 +1,25 @@
+.contain {
+    width: 360px;
+    padding: 20px 24px;
+    margin-top: 20px;
+
+}
+
+.contain__title {
+    color: var(--titles);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 700px) {
+    .contain {
+        width: 600px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .contain {
+        width: 900px;
+    }
+}
