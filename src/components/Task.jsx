@@ -5,7 +5,7 @@ import useTask from '../hooks/useTask'
 
 
 const Task = ({task, deleteTask, updateTask, completeTask}) => {
-  const {title, completed, id} = task
+  const {title, completed, id, date} = task
 
   const {isEdit, handleDelete, handleUpdate, handleComplete} = useTask(
     deleteTask,
@@ -25,6 +25,7 @@ const Task = ({task, deleteTask, updateTask, completeTask}) => {
       ) : (
         <TaskDetail
           title={title}
+          date={date}
           completed={completed}
           handleDelete={handleDelete}
           handleUpdate={handleUpdate}

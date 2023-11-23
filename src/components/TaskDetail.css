@@ -1,4 +1,5 @@
 .task {
+    position: relative;
     width: 100%;
     background-color: rgb(243, 232, 232);
     display: flex;
@@ -13,7 +14,14 @@
     color: var(--titles);
     height: auto;
     font-size: 1rem;
-    /* overflow: hidden; */
+}
+
+.task__date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: .8rem;
+    font-weight: bold;
 }
 
 .task__buttons {
@@ -21,7 +29,7 @@
     justify-content: space-around;
 }
 
-.task__buttons button {
+.task__button {
     padding: 2px 8px;
     background-color: transparent;
     font-size: .8rem;
@@ -64,5 +72,9 @@
 
     .task__buttons {
         gap: 10px;
+    }
+
+    .task__date {
+        right: 50%;
     }
 }

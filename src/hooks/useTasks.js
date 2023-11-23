@@ -1,13 +1,17 @@
 import { useState } from 'react';
+import { taskUpdated, taskCompleted } from '../helpers/helperTasks';
 
 const useTasks = (initialTasks, setInitialTasks) => {
   const [tasks, setTasks] = useState(initialTasks);
   const [isShowCompleted, setIsShowCompleted] = useState(false);
 
   const createTask = (data, id) => {
+    const date = new Date()
+
     const task = {
       title: data.task,
       id,
+      date: date.toDateString(),
       completed: false
     };
 
@@ -40,10 +44,10 @@ const useTasks = (initialTasks, setInitialTasks) => {
     }
   };
 
-  const taskUpdated = (newTitle, task) => {
-    const taskUpdate = { id: task.id, title: newTitle, completed: task.completed };
-    return taskUpdate;
-  };
+  // const taskUpdated = (newTitle, task) => {
+  //   const taskUpdate = { id: task.id, title: newTitle, completed: task.completed };
+  //   return taskUpdate;
+  // };
 
   const completeTask = (id) => {
     const updatedTasks = tasks.map((task) =>
@@ -57,10 +61,10 @@ const useTasks = (initialTasks, setInitialTasks) => {
     }
   };
 
-  const taskCompleted = (task) => {
-    const completedTask = { ...task, completed: true };
-    return completedTask;
-  };
+  // const taskCompleted = (task) => {
+  //   const completedTask = { ...task, completed: true };
+  //   return completedTask;
+  // };
 
   const showCompleted = (value) => setIsShowCompleted(value);
 

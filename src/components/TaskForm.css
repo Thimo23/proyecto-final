@@ -78,11 +78,23 @@
         justify-content: center;
         gap: 20px;
     }
+
+    .form__error {
+        top: -20px;
+        left: 110px;
+        font-size: .7rem;
+    }
 }
 
 @media (min-width: 900px) {
 
     .form input[type='text'] {
         width: 450px;
+    }
+
+    .form__error {
+        top: -20px;
+        left: 210px;
+        font-size: .8rem;
     }
 }
